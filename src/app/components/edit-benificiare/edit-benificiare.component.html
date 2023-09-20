@@ -1,0 +1,158 @@
+
+<div class="col-md-8 mx-auto">
+    <div class="d-flex justify-content-end mb-2">
+        <button class="btn btn-secondary ml-auto" (click)="gotoList()">لائحة المواقع <i class="fa fa-arrow-right"></i>
+
+        </button>
+      </div>
+    <!-- <button (click)="gotoList()" class="btn btn-primary" style="float: right;">Liste des projets</button><br><br> -->
+    <div class="card">
+        <div class="card-header" style="display: block;text-align: right;">
+    تغيير الموقع
+        </div>
+        <div class="card-body">
+        <form #f="ngForm" (ngSubmit)="onUpdateResource(f.value)" *ngIf="currentResource">
+           
+                 
+          
+             
+
+                       <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label  class="control-label" style="display: block;text-align: right;">
+                                    : * الإسم 
+                                </label>
+                                <input type="text" name="designation" style="text-align: right;" ngModel [(ngModel)]="currentResource.designation"  class="form-control">
+                            </div> 
+                           </div>
+                           
+                       
+                           <div class="col">
+                            <div class="form-group">
+                                <label  class="control-label" style="display: block;text-align: right;">
+                                    : * Identifiant
+                                </label>
+                                <input type="text" name="identifiant" style="text-align: right;" ngModel [(ngModel)]="currentResource.identifiant"  class="form-control">
+                            </div> 
+                           </div> 
+                           
+                           
+                           
+                       </div>
+                       <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label  class="control-label" style="display: block;text-align: right;">
+                                    : * y 
+                                </label>
+                                <input type="number" name="y" style="text-align: right;" ngModel [(ngModel)]="currentResource.y"  class="form-control">
+                            </div> 
+                           </div>
+                           
+                       
+                           <div class="col">
+                            <div class="form-group">
+                                <label  class="control-label" style="display: block;text-align: right;">
+                                    : * x
+                                </label>
+                                <input type="number" name="x" style="text-align: right;" ngModel [(ngModel)]="currentResource.x"  class="form-control">
+                            </div> 
+                           </div> 
+                           
+                           
+                           
+                       </div>
+              
+                       <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label  class="control-label" style="display: block;text-align: right;">
+                                    : *المساحة 
+                                </label>
+                                <input type="number" name="superficie" style="text-align: right;" ngModel [(ngModel)]="currentResource.superficie" class="form-control">
+                            </div> 
+                           </div>
+                      
+                           <div class="col">
+                            <div class="form-group">
+                                <label  class="control-label" style="display: block;text-align: right;">
+                                    : * الهاتف
+                                </label>
+                                <input type="text" name="contact" style="text-align: right;" ngModel [(ngModel)]="currentResource.contact" class="form-control">
+                            </div> 
+                           </div> 
+                           
+                       </div>
+<!-- -------------------------- -->
+<div class="row">
+    <div class="col">
+        <div class="form-group">
+            <label  class="control-label" style="display: block;text-align: right;">
+                : *  العنوان
+            </label>
+            <input type="text" name="adress" style="text-align: right;" ngModel [(ngModel)]="currentResource.adress" class="form-control">
+        </div> 
+       </div>
+    <div class="col">
+        <div class="form-group">
+            <label  class="control-label" style="display: block;text-align: right;">
+                : * الدائرة
+            </label>
+             <select class="form-control" name="district" *ngIf="districts" [ngModel]="district" (ngModel)="selectedDistrict" (ngModelChange)="onRowClicDistrict($event)"> 
+                 
+                 <option *ngFor="let district of districts"  [value]="district.id">{{district.designation}}</option>
+               </select>
+         </div>
+    </div>
+  </div>
+                      <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label  class="control-label" style="display: block;text-align: right;">
+                                    : * الفئة
+                                </label>
+                                 <select class="form-control" name="categorie" *ngIf="categories" [ngModel]="categorie" (ngModel)="selectedCategorie" (ngModelChange)="onRowClicCategorie($event)"> 
+                                     
+                                     <option *ngFor="let categorie of categories"  [value]="categorie.id">{{categorie.designation}}</option>
+                                   </select>
+                             </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label  class="control-label" style="display: block;text-align: right;">
+                                    : * الملحقة
+                                </label>
+                             
+                                 <select class="form-control" name="annexe" *ngIf="annexes" [ngModel]="annexe" (ngModel)="selectedAnnexe" (ngModelChange)="onRowClickAnnexe($event)"> 
+                                     
+                                     <option *ngFor="let annexe of annexes"  [value]="annexe.id">{{annexe.designation}}</option>
+                                   </select>
+                                
+                             </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label  class="control-label" style="display: block;text-align: right;">
+                                    : *  الملاحضات
+                                </label>
+                                <input type="text" name="observations" style="text-align: right;" ngModel [(ngModel)]="currentResource.observations" class="form-control">
+                            </div> 
+                           </div>
+               
+                      </div>
+            
+                       <div>
+                        <button class="btn btn-success"  style="float: right; margin-left: 7px;" type="submit">حفظ</button>
+                 
+                        <!-- <button class="btn btn-danger" style="float: right;" type="button" (click)="reset(f)">إلغاء</button> -->
+                  
+                       </div>
+            
+    
+        </form>
+    </div>
+    </div>
+</div>

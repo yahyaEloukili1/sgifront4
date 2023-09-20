@@ -1,0 +1,48 @@
+<div class="container">
+    <!-- <button class="btn btn-primary mb-2 ml-auto">Add </button> -->
+    <div class="d-flex justify-content-end mb-2">
+   
+      <button  class="btn btn-success" (click)="oupload()">تحميل <i class="fa fa-print"></i></button>
+    </div>
+    
+      <table class="table table-bordered table-sm">
+          <thead>
+          <tr>
+            <th style="width: 20%;">Actions</th>
+            <th>العنوان</th>
+            <th>اللائحة</th>
+              <th>الملحقة الإدارية</th>
+              <th>الادارة</th>
+              <th>الفئة</th>
+              <th>الإسم الكامل</th>
+              <th>Cin</th>
+              <th>الرقم الترتيبي</th>
+            
+             
+            </tr>
+           
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of benificiaires; let i = index" [class.bold-row]="isLastRowOfGroup(i)">
+
+              <td>
+                <button  class="btn btn-success" (click)="onEditResource(p)">تبديل <i class="fa fa-pencil"></i></button>
+                &nbsp;
+                <button  class="btn btn-danger" (click)="onDeleteResource(p['_links'].self.href)">حذف <i class="fa fa-remove"></i></button>
+              </td>
+              <td>{{p.address}}</td>
+              <td>{{p.fiche}}</td>
+              <td>{{p.annexeName}}</td>
+              <td>{{p.districtName}}</td>
+              <td>{{p.categorieName}}</td>
+              <td>{{p.nom}}</td>
+              <td>{{p.cin}}</td>
+              <td>{{p.identifiant}}</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+
+
+
+  

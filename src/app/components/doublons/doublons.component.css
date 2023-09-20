@@ -1,0 +1,10 @@
+.bold-row td {
+    border-bottom: 5px solid black;
+  }
+  tr.grouped-beneficiary:last-child {
+    border-bottom: 2px solid black;
+  }
+
+  tr,th,td{
+    text-align: center;
+}

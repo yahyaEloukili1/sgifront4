@@ -1,0 +1,79 @@
+<div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   
+    <div class="container">
+ 
+      <a class="nav-link">
+        <button (click)="logout()" *ngIf="pdiService.jwtToken" class="btn btn-danger">الخروج</button>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+       
+        <ul class="navbar-nav">
+          <!-- <li class="nav-item" *ngIf="pdiService.jwtToken">
+            <a class="nav-link" [routerLink]="['iftar/doublons']" [routerLinkActive]="['is-active']">المكررون</a>
+          </li> -->
+          <!-- <li class="nav-item dropdown" *ngIf="pdiService.jwtToken">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              المكررون
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#" [routerLink]="['iftar/doublons']">المكررون</a>
+              <a class="dropdown-item" href="#" [routerLink]="['iftar/doublons2']">أرشيف المكررين</a>
+            </div>
+          </li> -->
+          <!-- <li class="nav-item" *ngIf="pdiService.jwtToken">
+            <a class="nav-link" [routerLink]="['iftar/benificiaires']" [routerLinkActive]="['is-active']">المستفيدون</a>
+          </li> -->
+          <!-- <li class="nav-item dropdown" *ngIf="pdiService.jwtToken">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              المستفيدون
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#" [routerLink]="['iftar/benificiaires']">المستفيدون</a>
+              <a class="dropdown-item" href="#" [routerLink]="['iftar/benificiaires2']">أرشيف المستفيدين</a>
+            </div>
+          </li> -->
+          <li class="nav-item" *ngIf="pdiService.jwtToken">
+            <a class="nav-link" [routerLink]="['iftar/benificiaires2']" [routerLinkActive]="['is-active']">المواقع</a>
+          </li>
+  
+          <li class="nav-item" *ngIf="pdiService.jwtToken">
+            <a class="nav-link" [routerLink]="['iftar/districts']" [routerLinkActive]="['is-active']">الدوائر</a>
+          </li>
+          <li class="nav-item" *ngIf="pdiService.jwtToken">
+            <a class="nav-link" [routerLink]="['iftar/annexes']" [routerLinkActive]="['is-active']">الملحقات</a>
+          </li>
+          <li class="nav-item" *ngIf="pdiService.jwtToken">
+            <a class="nav-link" [routerLink]="['iftar/categories']" [routerLinkActive]="['is-active']">الفئات</a>
+          </li>
+          <!-- <li class="nav-item" *ngIf="pdiService.jwtToken">
+            <a class="nav-link" [routerLink]="['iftar/fiches']" [routerLinkActive]="['is-active']">اللوائح</a>
+          </li> -->
+          <li class="nav-item"  style="margin-left: 10px;">
+            <a class="navbar-brand" [routerLink]="['pdi/dashboard']" [routerLinkActive]="['is-active']">
+              <img src="../assets/images/logo-removebg-preview (1).png" style="height: auto;width: 40px;" alt="">
+            </a>
+            <div style="text-align: center;display: inline-block;vertical-align: middle;font-size: 9px;color: white;" >
+              المملكة المغربية              <br>وزارة الداخلية
+              <br> ولاية جهة العيون الساقية الحمراء <br> 
+            </div>
+          </li>
+        </ul>
+   
+      </div>
+    </div>
+  </nav>
+
+  
+ 
+  
+  
+
+  
+<div class="mt-5">
+  <router-outlet> </router-outlet>
+</div>

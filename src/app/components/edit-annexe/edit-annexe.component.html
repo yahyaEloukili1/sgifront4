@@ -1,0 +1,56 @@
+
+<div class="col-md-8 mx-auto">
+    <div class="d-flex justify-content-end mb-2">
+        <button class="btn btn-secondary ml-auto" (click)="gotoList()">لائحة الملحقات <i class="fa fa-arrow-right"></i>
+
+        </button>
+      </div>
+    <!-- <button (click)="gotoList()" class="btn btn-primary" style="float: right;">Liste des projets</button><br><br> -->
+    <div class="card">
+        <div class="card-header" style="display: block;text-align: right;">
+            إضافة دائرة جديدة
+        </div>
+        <div class="card-body">
+        <form #f="ngForm" (ngSubmit)="onUpdateResource(f.value)">
+           
+                 
+          
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group" *ngIf="currentResource">
+                                <label  class="control-label" style="display: block;text-align: right;">
+                                    : * الملحقة
+                                </label>
+                                <input type="text" name="designation" style="text-align: right;" ngModel [(ngModel)]="currentResource.designation"  class="form-control">
+                            </div> 
+                           </div>
+                           
+                           
+                           
+                       </div>
+                      <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label  class="control-label" style="display: block;text-align: right;">
+                                    : * الدائرة 
+                                </label>
+                                 <select class="form-control" name="district" *ngIf="districts" [ngModel]="district" (ngModel)="selectedDistrict" (ngModelChange)="onRowClick($event)"> 
+                                     
+                                     <option *ngFor="let district of districts"  [value]="district.id">{{district.designation}}</option>
+                                   </select>
+                             </div>
+                        </div>
+                      </div>
+            
+                       <div>
+                        <button class="btn btn-success"  style="float: right; margin-left: 7px;" type="submit">حفظ</button>
+                 
+
+                  
+                       </div>
+            
+    
+        </form>
+    </div>
+    </div>
+</div>

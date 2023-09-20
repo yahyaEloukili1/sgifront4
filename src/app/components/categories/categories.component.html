@@ -1,0 +1,28 @@
+<div class="container">
+    <!-- <button class="btn btn-primary mb-2 ml-auto">Add </button> -->
+    <div class="d-flex justify-content-end mb-2">
+      <button class="btn btn-primary ml-auto" (click)="addResource()">إضافة فئة <i class="fa fa-plus-circle"></i>
+      </button>
+    </div>
+    
+      <table class="table table-bordered">
+          <thead>
+          <tr>
+            <th>Actions</th>
+              <th>الفئة</th>
+            
+             
+            </tr>
+           
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of categories; let i = index">
+              <td><button  class="btn btn-success" (click)="onEditResource(p)">تبديل <i class="fa fa-pencil"></i></button>
+                &nbsp;
+                <button  class="btn btn-danger" (click)="onDeleteResource(p['_links'].self.href)">حذف <i class="fa fa-remove"></i></button>
+              </td>
+              <td>{{p.designation}}</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>

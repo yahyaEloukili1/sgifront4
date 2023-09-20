@@ -1,0 +1,35 @@
+<div class="container">
+
+    
+    <div class="col-md-4 mx-auto">
+
+        <div class="alert alert-danger" style="text-align: center;" *ngIf="mode==1">
+            المرجو التحقق من إسم المستخدم وكلمة المرور
+        </div>
+        <div class="card mb-5"> 
+            <div class="card-header" style="text-align: center;">
+                تسجيل الدخول
+            </div>
+            <div class="card-body">
+            <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+                <div class="form-group">
+                    <label  class="control-label">
+                        اسم المستخدم
+                    </label>
+                    <input type="text" name="username" ngModel  ngModel class="form-control">
+                </div>
+                <div class="form-group">
+                    <label  class="control-label">
+                        كلمة المرور
+                    </label>
+                    <input type="text" type="password" name="password" ngModel class="form-control">
+                </div>
+              
+                <button class="btn btn-success" type="submit" style="float: right;">  تسجيل الدخول</button>
+        
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
+
