@@ -135,10 +135,11 @@ checrher(){
   if(this.designation){
     this.selectedAnnexe=0 
     this.selectedCategorie=0
-  this.rnpService.getResourceAll('endroits/search/findByDesignationIgnoreCase?designation='+this.designation).subscribe(data=>{
+    this.selectedDistrict = 0
+  this.rnpService.getResourceAll2('endroits/search/findByDesignationIgnoreCase?designation='+this.designation).subscribe(data=>{
     console.log('endroits/search/findByDesignationIgnoreCase?designation='+this.designation)
     this.benificiaires = data['_embedded'].endroits
-  
+
 })
   }else{
     this.getReources()
