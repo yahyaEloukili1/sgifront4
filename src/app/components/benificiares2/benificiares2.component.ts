@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MyServiceService } from 'src/app/services/my-service.service';
+declare var google: any;
 
 @Component({
   selector: 'app-benificiares2',
@@ -23,6 +24,7 @@ districts
    this.getAnnexes()
    this.getCategories()
    this.getDistricts()
+   this.initializeMap();
 
 }
 oupload(){
@@ -167,6 +169,10 @@ onDeleteResource(id:string){
 if(confirm('Etes vous sur de vouloir supprimer cette resource ?')){
   this.rnpService.deleteResourceById(this.rnpService.host+'/endroits/'+id).subscribe(data=>{
 this.getReources()
+this.selectedAnnexe = 0
+this.selectedAnnexe =0 
+this.selectedCategorie =0
+this.designation = ""
 },err=>{
   console.log(err)
 })
@@ -179,5 +185,28 @@ onEditResource(id:any){
 
   this.router.navigateByUrl("/iftar/editBenificiaire/"+id)
 } 
+initializeMap() {
+  const mapOptions = {
+    center: { lat: 12.971598, lng: 77.594566 }, // Set the initial center of the map
+    zoom: 8 // Set the initial zoom level
+  };
+  const map = new google.maps.Map(document.getElementById('map'), mapOptions);
+ 
+
+  // Loop through the 'benificiaires' and add markers
+  this.rnpService.getResourceAll2('endroits2').subscribe(data=>{
+   var endroits= data
+   
+    endroits.forEach(endroit => {
+      console.log(endroit.x,"pepe")
+      const marker = new google.maps.Marker({
+        position: { lat: endroit.x, lng: endroit.y },
+        map: map,
+        title: endroit.designation
+      });
+    });
+})
+
+}
 
 }

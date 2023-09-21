@@ -25,6 +25,7 @@ import { Doublons2Component } from './components/doublons2/doublons2.component';
 import { FichesComponent } from './components/fiches/fiches.component';
 import { AddFicheComponent } from './components/add-fiche/add-fiche.component';
 import { EditFicheComponent } from './components/edit-fiche/edit-fiche.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { EditFicheComponent } from './components/edit-fiche/edit-fiche.component
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    GoogleMapsModule
   ],
   providers: [AuthGuard,{
     provide : HTTP_INTERCEPTORS,

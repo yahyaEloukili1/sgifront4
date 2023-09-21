@@ -16,6 +16,7 @@ export class MyServiceService {
    this.loadToken()
    return this.http.get<any[]>(`${this.host}/${resource}?size=10000`);
 }
+
 getResourceAll2(resource: String):Observable<any[]>{
   if(this.jwtToken ==null)
   this.loadToken()
